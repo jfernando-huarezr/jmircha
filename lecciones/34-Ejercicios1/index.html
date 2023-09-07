@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios 1</title>
+</head>
+<body>
+    <h1>Ejercicios 1</h1>
+    <script>
+
+        const input1 = prompt("Ingresa un texto");
+        const input2  = prompt("Ingresa un numero")
+
+        //1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+
+        const miFuncion = (valor="") => {            
+
+            (typeof(valor)!=='string'  || valor==="") 
+            ? console.warn("No es un String")
+            : console.info(valor.length);                             
+        }
+        
+
+        //2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+
+        const miFuncion2 = (valor="", num) => {
+            const number = parseInt(num);
+
+            (typeof(valor)!== 'string'  || valor==="") 
+            ? console.warn("No es un String")
+            :   (typeof(number)!== 'number')
+                ? console.warn("Segundo input no es un numero")
+                : console.info(valor.slice(0,num));
+        }
+
+        //miFuncion2(cadena,numero);
+
+
+        //3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+
+        const miFuncion3 = (valor="", separador) => {
+            (typeof(valor)!== 'string'  || valor==="") 
+                ? console.warn("No es un String")
+                : console.info(valor.split(separador));
+        }
+
+        //miFuncion3(input1, input2);
+
+        //4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.
+
+        const miFuncion4 = (valor="", num=1) => {
+            const number = parseInt(num);
+
+            (typeof(valor)!== 'string'  || valor==="") 
+                ? console.warn("No es un String")
+                :   (typeof(number)!== 'number')
+                        ? console.warn("Segundo input no es un numero")
+                        : console.info(valor.repeat(number));
+        }
+
+        miFuncion4(input1, input2);
+    </script>
+    
+</body>
+</html>

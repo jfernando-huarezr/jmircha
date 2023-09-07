@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios 8</title>
+</head>
+<body>
+    <h1>Ejercicios 8</h1>
+    <script>
+        // 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }.
+
+        miFuncion24 = (arreglo) => {
+            if(arreglo===undefined) return console.warn("el valor no es una arreglo");
+            if(!(arreglo instanceof Array)) return console.warn("el valor no es una arreglo");
+            if(arreglo.length===0) return console.info("El arreglo esta vacio");
+
+            if(!arreglo.every(element => {
+                return typeof(element) == "number";
+            })) return (console.warn("El arreglo no es de solo numeros"));
+
+            const arrAsc = arreglo.slice().sort((a,b)=> a-b);
+            const arrDesc = arrAsc.toReversed();
+
+
+            const miObjeto = {
+                arrAsc,
+                arrDesc
+            }
+
+            return console.info(`Arreglo original ${arreglo}
+            Arreglo Ascendente ${miObjeto.arrAsc}
+            Arreglo Descendente ${miObjeto.arrDesc}`);
+        }
+
+        //miFuncion24([1,9,2,8,3,7,4,7,5,6]);
+
+        // 25) Programa una función que dado un arreglo de elementos, elimine los duplicados, pe. miFuncion(["x", 10, "x", 2, "10", 10, true, true]) devolverá ["x", 10, 2, "10", true].
+
+        miFuncion25 = (arreglo) => {
+            if(arreglo===undefined) return console.warn("el valor no es una arreglo");
+            if(!(arreglo instanceof Array)) return console.warn("el valor no es una arreglo");
+            if(arreglo.length===0) return console.info("El arreglo esta vacio");
+
+            let unique = arreglo.reduce((acc, curr) => {
+                if (!acc.includes(curr)) acc.push(curr);
+                return acc; 
+            }, []);
+
+            //otra forma para revisar con duplicados : arreglo.filter((value,index,self) => self.indexOf(value) === index)
+            //otra forma : [... new Set(arr)] , revisar en MDN para mayor informacion y entender
+
+            return console.info(unique);
+        }
+
+        //miFuncion25(["x", 10, "x", 2, "10", 10, true, true]);
+
+        // 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+        miFuncion26 = (arreglo) => {
+            if(arreglo===undefined) return console.warn("el valor no es una arreglo");
+            if(!(arreglo instanceof Array)) return console.warn("el valor no es una arreglo");
+            if(arreglo.length===0) return console.info("El arreglo esta vacio");
+
+            if(!arreglo.every(element => {
+                return typeof(element) == "number";
+            })) return (console.warn("El arreglo no es de solo numeros"));
+
+            if(!arreglo.every(element => {
+                return (element<=20 && element>=0);
+            })) return (console.warn("Al menos una de las notas no esta en el rango"));
+
+
+            const sumatoria = arreglo.reduce((acc,curr)=>{
+                return acc+curr;
+            })
+
+            const promedio = sumatoria/arreglo.length;
+
+            return console.info(`El promedio de todas las notas es ${promedio}`)
+        }
+
+        miFuncion26([9,8,7,6,5,4,3,2,1,0]);
+
+    </script>
+    
+</body>
+</html>

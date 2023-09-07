@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sets</title>
+</head>
+<body>
+    <h1>Sets</h1>
+    <script>
+        //un array pero de datos unicos. Arreglo que solo acepta valores unicos hablando de valores primitivos,
+        const set = new Set([1,2,3,3,4,5,true,false,false,{},{}, "hola", "HOLA"]);
+        console.log(set);
+        console.log(set.size);
+
+        const set2 = new Set();
+        set2.add(1);
+        set2.add(2);
+        set2.add(2);
+        set2.add(3);
+        set2.add(true);
+        set2.add(false);
+        set2.add(true);
+        set2.add({});
+        set2.add([]);
+
+        console.log(set2);
+
+        for(item of set) {
+            console.log(item);
+        }
+
+        console.log("**************")
+
+        set2.forEach(item => {
+            console.log(item);
+        })
+
+        //para acceder a una posicion es diferente que con un array.
+        //hay que convertir el set en un array con el metodo Array.from y pasandole el set
+        let arr = Array.from("set")
+        console.log(arr[1]);
+
+        //set.delete("hola"); //para borrar un elemento
+        //set.has(19); //para verificar si existe el elemento
+
+        //set2.clear(); // para borrar todo el set
+        
+    </script>
+    
+</body>
+</html>

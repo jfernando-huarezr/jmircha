@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbols</title>
+</head>
+<body>
+    <h1>Symbols</h1>
+    <script>
+        //es un tipo de dato primitivo. permite crear identificadores de referencia unicos
+
+        let id = Symbol("id");  //no necesita la palabra new
+        let id2 = Symbol("id2"); //lo que hay dentro es como una etiquetal;
+
+        console.log(id===id2);
+        console.log(id,id2);
+        console.log(typeof(id),typeof(id2));
+
+        //buenas practicas, siempre crearlo con constantes
+        const NAME = Symbol("nombre");
+        const SALUDAR = Symbol("saludar");
+
+        const persona = {
+            [NAME]:"Fernando",
+        }
+
+        console.log(persona);
+
+        persona.NAME = "Jose Fernando";
+
+        console.log(persona);
+        console.log(persona.NAME);
+        console.log(persona[NAME]);
+
+        //CON ESTO PODEMOS OCULTAR CIERTAS PROPIEDADES DE UN OBJETO
+
+
+        persona[SALUDAR] = function () {
+            console.log(`Hola me llamo ${persona[NAME]}`);
+        }
+
+        console.log(persona);
+        persona[SALUDAR]();
+
+
+        for (let propiedad in persona) {
+            console.log(propiedad);
+            console.log(persona[propiedad]);
+        }
+
+        console.log(Object.getOwnPropertySymbols(persona));
+
+
+    </script>
+    
+</body>
+</html>

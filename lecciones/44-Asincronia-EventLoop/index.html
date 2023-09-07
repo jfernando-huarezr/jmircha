@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asincronia y Event Loop</title>
+</head>
+<body>
+    <h1>Asincronia y Event Loop</h1>
+    <script>
+        //Procesamiento Single thread y multi Thread (threads=hilo)
+
+        //Operaciones de CPU y Operaciones de I/O
+        //Operaciones Concurrentes y Paralelas
+        //Operaciones Bloqueantes y No Bloqueantes
+        //Operaciones Sincronas y Asincronas
+
+        //Javascript usa un modelo asincrono y no bloqueante con un loop de eventos implementado en un solo hilo, (single thread) para operaciones de entrada y salida (input/output)
+
+
+        /*Codigo Sincrono Bloqueante*/
+        (()=>{
+            console.log("Codigo Sincrono");
+            console.log("Inicio");
+
+            function dos(){
+                console.log("Dos");
+            }
+
+            function uno() {
+                console.log("Uno")
+                dos();
+                console.log("Tres");
+            }
+
+            uno();
+
+            console.log("Fin");
+        })();
+
+        console.log("*************************");
+
+        /*Codigo Sincrono No Bloqueante*/
+        (()=>{
+            console.log("Codigo Asincrono");
+            console.log("Inicio");
+
+            function dos(){
+                setTimeout(function () {
+                    console.log("Dos");
+                   
+                }, 10);
+            }
+
+            function uno() {
+                setTimeout(function () {
+                    console.log("Uno")
+                    setTimeout(function () {
+                        console.log("Soy otro asincrono?");
+                    }, 1000);
+                }, 0);
+                dos();
+                console.log("Tres");
+            }
+
+            uno();
+            console.log("Fin");
+        })();
+
+    </script>
+</body>
+</html>

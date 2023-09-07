@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios 5</title>
+</head>
+<body>
+    <h1>Ejercicios 5</h1>
+    <script>
+        // 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+
+        miFuncion15 = (num, sistema) => {
+            if (num===undefined || sistema===undefined) return console.warn("Debe ingresar ambos valores");
+            if(isNaN(num)) return console.warn("El valor no es un numero");
+            let respuesta;
+            let expReg = /^[0-1]+$/g;
+
+            switch (sistema) {
+            case 2:
+                if(!expReg.test(num)) return console.info("el numero ingresado no es binario");
+                //parseInt(numerobinario, 10)
+
+                respuesta=0;
+                const digitos = (num.toString()).split("").reverse()
+
+               for (i=0;i<digitos.length;i++){
+                 respuesta=respuesta+parseInt(digitos[i])*Math.pow(2,i);
+               }
+               return console.info(respuesta);
+
+            case 10: 
+                //parseInt(numeroDecimal, 2) tambien se podia hacer con este metodo mmmh intedezamte
+                respuesta="";         
+                while (num) {
+                    respuesta = num%2+`${respuesta}`;
+                    num = Math.floor(num/2);
+                }
+                return console.info(num+respuesta);
+
+            }
+        }
+
+        //miFuncion15(10101010, 2);
+
+        // 16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+
+        miFuncion16 = (num,dscto) => {
+            if (num===undefined || dscto===undefined) return console.warn("Debe ingresar ambos valores");
+            if(isNaN(num) || isNaN(dscto)) return console.warn("Uno de los valores no es un numero");
+            return console.info(num*(100-dscto)/100);
+        }
+
+        //miFuncion16(1000,20);
+
+        // 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+        miFuncion17 = (fecha = undefined) => {
+            if (fecha===undefined) return console.warn("Debe ingresar todos los valores");
+            if(!(fecha instanceof Date)) return console.warn("el valor no es una fecha");
+
+            const fechaActual = new Date();
+            const fechaInput = fecha;
+
+            console.info(Math.floor((fechaActual - fechaInput)/31536000000));
+        }
+
+        miFuncion17(new Date(1984,12,23));
+    </script>
+    
+</body>
+</html>

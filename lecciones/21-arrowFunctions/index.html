@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Functions</title>
+</head>
+<body>
+    <h1>Arrow Functions!</h1>
+    <script>
+        //nueva forma de definir funciones anonimas
+
+        //antes: funcion expresada
+        const saludo = function(){
+            console.log("Hola!");
+        }
+
+        saludo();
+
+        //al ser expresada y no declarada, no puedo llamar la funcion antes de haberla definido
+
+        //arrow function solo es quitar la palabra 'function' 
+
+        const saluda = (nombre) => {
+            console.log(`Hola ${nombre}, desde arrow function!`)
+        }
+
+        saluda("Fernando");
+
+        const sumar = function(a,b) {
+            return a+b;
+        }
+
+        console.log(sumar(1,2));
+
+        //el return es implicito, si la funcion arrow es de una sola linea (sin llaves). Si no, tengo que ponerle las llaves return obligatorio.
+
+        const sumando = (a,b) => a+b;
+        
+
+        console.log(sumando(3,3));
+
+        const funcionDeVariasLineas = () => {
+            console.log("uno");
+            console.log("dos");
+            console.log("tres")
+        }
+
+        funcionDeVariasLineas();
+
+        const numeros = [1,2,3,4,5];
+        //quiero iterar por todos los numeros e imprimirlos
+
+        /*numeros.forEach(function(el, index){
+            console.log(`El elemento ${el} esta en la posicion ${index}`);
+        })*/
+
+        //Con arrow function:
+        numeros.forEach((el, index) => console.log(`El elemento ${el} esta en la posicion ${index}`))
+
+
+        //Arrow functions puede capturar el this del contexto al que se refieren (?)
+        
+        /*function perro(){
+            console.log(this);
+        }
+
+        perro();*/
+
+        /*const perro = {
+            nombre: "kenai",
+            ladrar: function() {
+                console.log(this)
+            }
+        }*/
+
+        const perro = {
+            nombre: "kenai",
+            ladrar: () => console.log(this)            
+        }
+
+        perro.ladrar();
+
+        //arrow function no respeta el contexto dentro de un objeto. Pueden heredar el contexto donde se encuentra el objeto padre. 
+
+        //Por ejemplo, con arrow function no podria poner this.perro, porque el contexto es la ventana del navegador.
+
+        //Seria mejor usar contexto literal
+
+    </script>
+</body>
+</html>

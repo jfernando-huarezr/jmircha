@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuracion</title>
+</head>
+<body>
+    <h1>DESTRUCTURACION</h1>
+    <script>
+        //ECMASCRIPT 6!
+
+        
+        const numeros = [1,2,3];
+
+        //quiero guardar los numeros en variables diferentes, como lo puedo hacer?
+
+        //sin destructuracion
+        let uno = numeros[0],
+            dos = numeros[1],
+            tres = numeros[2];
+
+        console.log(uno, dos, tres); 
+
+        //con destructuracion
+        const [one, two, three] = numeros;
+        console.log(one, two, three);
+
+        const persona = {
+            nombre: "Fernando",
+            apellido: "Huarez",
+            edad: 31
+        }
+
+        let {nombre, apellido, edad} = persona;
+        console.log(nombre, apellido, edad);
+
+        //para que la destructuracion funcione en objetos, la variable debe tener el mismo nombre que la propiedad que intento guardar.
+
+        //se puede coger solo una propiedad, no es obligatorio poner todas las propiedades
+
+        //Se puede cambiar asi
+        //let {nombre, apellido, edad:age} = persona
+
+        
+
+    </script>
+    
+</body>
+</html>

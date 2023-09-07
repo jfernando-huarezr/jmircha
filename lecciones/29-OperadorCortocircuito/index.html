@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operador de Cortocircuito</title>
+</head>
+<body>
+    <h1>Operador de Cortocircuito</h1>
+    <script>
+        //Cortocircuito con OR - cuando el valor de la izquierda en la expresion siempre pueda validar a true, es el valor que se cargara por defecto
+
+        // thruty values
+        // if (true)
+        // if ({})
+        // if ([])
+        // if (42)
+        // if ("foo")
+        // if (new Date())
+        // if (-42)
+        // if (3.14)
+        // if (-3.14)
+        // if (Infinity)
+        // if (-Infinity)
+
+        // falsy values
+        // null
+        // undefined
+        // false
+        // NaN
+        // 0
+        // -0
+        // 0n
+        // ""
+        // document.all
+
+        function saludar(nombre){
+            nombre = nombre || "Desconocido";
+            console.log(`hola ${nombre}`);
+        }
+
+        saludar("Fernando");
+        saludar();
+
+        console.log("cadena"||"valor de la derecha");
+        console.log(19||"valor de la derecha");
+
+        //Cortocircuito en AND - cuando el valor de la izquierda en la expresion siempre pueda validar a false, es el valor que se cargara por defecto
+
+        console.log(19&&"valor de la derecha");
+
+    </script>
+</body>
+</html>

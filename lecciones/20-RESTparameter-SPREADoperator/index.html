@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parametros REST & Operador Spread</title>
+</head>
+<body>
+    <h1>Parametros REST & Operador Spread</h1>
+
+    <script>
+        //parametros REST: forma de virtualmente ir agregando parametros infinitos a una funcion
+        function sumar(a,b, ...c){
+            let resultado = a+b;
+
+            c.forEach(function(n){
+                resultado+=n;
+            })
+
+            return resultado;
+        }
+
+        console.log(sumar(1,2));
+        console.log(sumar(1,2,3));
+        console.log(sumar(1,2,3,4,5));
+
+        //spread Operator: cuando una expresion tengamos que expandir, cuando haya almacenar muchosa argumentos lo podamos hacer. Por ejemplo, en un arreglo u objeto recibimos nuevos parametros.
+
+        const arr1 = [1,2,3,4,5],
+              arr2 = [6,7,8,9,0];
+
+        console.log(arr1,arr2);
+
+        //aqui no lo combina, solo hace un nuevo arreglo con dos nuevos elemtnso de cada arreglo
+        //const arr3 = [arr1, arr2];
+        //console.log(arr3);
+
+        //aca si lo combina
+        const arr3 = [...arr1, ...arr2];
+        console.log(arr3);
+
+    </script>
+    
+</body>
+</html>

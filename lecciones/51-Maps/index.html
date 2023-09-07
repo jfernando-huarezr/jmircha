@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maps</title>
+</head>
+<body>
+    <h1>Maps</h1>
+    <script>
+        /*tipo de dato: son objetos que nos sirven para almacenar conjunto de valores asociados a manera de objeto (como un objeto primitivo)*/
+
+        const mapa = new Map(); //coleccion de datos como un objeto primitivo
+
+        //par ponerle datos o verlos funciona como objetos, con getters y setters
+
+        mapa.set("nombre", "Fernando");
+        mapa.set("apellido", "Huarez");
+        mapa.set("edad",31);
+
+        console.log(mapa);
+        console.log(mapa.size);
+        console.log(mapa.has("correo")); //para averiguar si hay una llave en el map
+        console.log(mapa.has("nombre"));
+
+        console.log(mapa.get("nombre"));
+
+        //para cambiar la llave
+
+        mapa.set("nombre", "Jose");
+        console.log(mapa.get("nombre"));
+
+        //si quiero eliminar
+
+        mapa.delete("apellido");
+        console.log(mapa);
+
+        for(let [key,value] of mapa) {
+            console.log(`llave: ${key}, valor: ${value}`);
+        }
+
+        //cosa locas que no tienen mucha logica: nombre de llave tipos de datos que no seon string
+        mapa.set(19, "diecinueve");
+        mapa.set(false, "falso");
+        mapa.set({},{});
+        console.log(mapa);
+        
+        const mapa2 = new Map([
+            ["nombre", "Sultan"],
+            ["edad", 3],
+            ["animal", "gato"],
+            [null,null]
+        ]);
+
+        console.log(mapa2);
+
+        const llavesMapa2 = [... mapa2.keys()];
+        const valoresMapa2 = [...mapa2.values()];
+
+        console.log(llavesMapa2, valoresMapa2);
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterables & Iterators</title>
+</head>
+<body>
+    <h1>Iterables & Iterators</h1>
+    <script>
+        //iterable: el elemento cuyo contenido se puede recorrer
+        //iterador: apuntador que esta recorriendo los elementos
+
+        //destructuracion, for, for of, array.for, spread operator, promesas
+        
+        const iterable = [1,2,3,4, true, "hola", {}];
+        const iterable2 = "Jose Fernando";
+        const iterable3 = new Set([1,1,1,1,2,2,2,3,3,4,4,4,5,5,5])
+
+        //como accedemos al iterador del iterable (lol)
+        const iterador = iterable[Symbol.iterator](); //mediante Symbol!
+        const iterador2 = iterable2[Symbol.iterator]();
+        const iterador3 = iterable3[Symbol.iterator]()
+
+        console.log(iterable);
+        console.log(iterador);
+        console.log(iterador2);
+
+
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+        // console.log(iterador.next());
+
+        let next = iterador.next();
+        let next2 = iterador2.next();
+        let next3 = iterador3.next();
+        
+        while(!next.done) {
+            console.log(next.value);
+            next = iterador.next();
+        }
+
+        while (!next2.done) {
+            console.log(next2.value);
+            next2 = iterador2.next();
+        }
+
+        while(!next3.done) {
+            console.log(next3.value);
+            next3=iterador3.next();
+        }
+
+
+    </script>
+    
+</body>
+</html>

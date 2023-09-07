@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manejo Errores</title>
+</head>
+<body>
+    Fundamentos Javascript
+
+    <script>
+        
+
+        try{
+            console.log("En el try se agrega el codigo a evaluar");
+            console.log("Segundo mensaje en el try");
+            Noexiste;
+        }catch(error){
+            console.log("Catch, captura cualquier error surgido o lanzado en el try");
+            console.log(error);
+        }finally{
+            console.log("El bloque finally se ejecutará SIEMPRE al final de un bloque try-catch");
+        }
+
+
+        try{
+            let numero="y";
+            if(isNaN(numero)){
+                throw new Error("El carácter introducido no es un Número"); //error personalizado
+            }
+
+            console.log(numero*numero);
+        }catch(error){
+            console.log(`Se produjo el siguiente error: ${error}`);
+        }
+
+        //finally no se usa mucho en frontend. 
+        //try - catch nos ayuda a saber que errores puede haber en nuestro codigo
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objeto Date</title>
+</head>
+<body>
+    <h1>Objeto Date</h1>
+    <script>
+        console.log(Date());
+
+        let fecha = new Date();
+        console.log(fecha);
+
+        //solo el dia del mes
+        console.log(fecha.getDate()); //fecha completa
+        console.log(fecha.getDay()); // dia de la semana: domingo 0, lunes 1, ... sabado 6,
+        console.log(fecha.getMonth()); //meses: enero 0, febrero 1 ...
+        console.log(fecha.getFullYear()); //el año
+
+        console.log(fecha.getHours()); //horas 0-23
+        console.log(fecha.getMinutes()); //minutos
+        console.log(fecha.getSeconds()); //segundos
+        console.log(fecha.getMilliseconds());//milisegundos
+
+        console.log(fecha.toString());
+        console.log(fecha.toDateString());
+        console.log(fecha.toLocaleString());
+        console.log(fecha.toLocaleDateString()); //solo la fecha
+        console.log(fecha.toLocaleTimeString()); //solo la hora
+
+        console.log(fecha.getTimezoneOffset());
+
+        //metodos del meridiano 0 - meridiano de greenwich
+        console.log(fecha.getUTCDate()); 
+        console.log(fecha.getUTCHours());
+
+        console.log(Date.now());//cuantos segundos han pasado desde el 1ro de enero de 1970
+
+        //una libreria a usar es moment.js
+        
+        let cumpleFer = new Date(1991,8,4);
+        console.log(cumpleFer);
+
+    </script>    
+</body>
+</html>

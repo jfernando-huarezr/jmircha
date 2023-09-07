@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+</head>
+<body>
+    <h1>This</h1>
+
+    <script>
+        //hace referencia al scope
+
+        console.log(this);
+        console.log(window);
+        console.log(this===window);
+
+        this.nombre = "Contexto Global";
+
+        console.log(window);
+        console.log(this.nombre);
+
+        function imprimir() {
+            console.log(this.nombre);
+        }
+
+        imprimir();
+
+
+        const obj = {
+            nombre : "contexto objeto",
+            imprimir: function(){
+                console.log(this.nombre);
+            }
+        }
+
+        obj.imprimir();
+
+        const obj2 = {
+            nombre: "contexto objeto 2",
+            imprimir: imprimir
+        }
+
+        obj2.imprimir();
+
+        const obj3 = {
+            nombre: "contexto objeto 3",
+            imprimir: () => {
+                console.log(this.nombre);
+            }
+        }
+
+        obj3.imprimir(); //con arrow functions el scope que maneja es el del objeto padre. Es mejor usar funciones anonimas cuando se trabaja dentro de los objetos, porque se salta el scope.
+
+        function Persona (nombre) {
+            this.nombre = nombre;
+
+            //return console.log(this.nombre); //devuelve el contexto del objeto/funcion
+
+            return function() {
+                console.log(this.nombre); 
+            }      //con esto devuelve el contexto global./ esta funcion crea un nuevo scope. dentro de este scope no tiene la propiedad nombre, por lo que salta al contexto global para obtenerlo.
+
+            //en este caso si uso una arrow function, como esta hereda el scope del padre si funcionaria.
+        }
+
+        Persona("Pepito");
+
+    </script>
+    
+</body>
+</html>

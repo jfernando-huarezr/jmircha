@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios 4</title>
+</head>
+<body>
+    <h1>Ejercicios 4</h1>
+    <script>
+        // 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+
+        miFuncion12 = (num) => {
+            if (!num) return console.warn("Debe ingresar un valor");
+            if(isNaN(num)) return "La entrada no es un numero";
+            if (num%1 != 0) return console.warn("La entrada no debe ser decimal");
+
+            let numero = Math.abs(num);
+            let respuesta = "Es primo";
+
+            for (i=2; i<numero;i++){
+                if (numero%i === 0) 
+                respuesta = "No es primo";
+                break;
+            }
+
+            return console.info(`El numero ${num} ${respuesta}`);
+        }
+
+        //miFuncion12(-6);
+
+
+
+        // 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+
+        miFuncion13 = (num) => {
+            if (!num) return console.warn("Debe ingresar un valor");
+            if(isNaN(num)) return "La entrada no es un numero";
+            if (num%1 != 0) return console.warn("La entrada no debe ser decimal");
+
+            return (Math.abs(num)%2 === 0) 
+            ? console.info(`El numero ${num} es par`)
+            : console.info(`El numero ${num} es impar`)  
+        }
+
+        //miFuncion13(-9);
+
+        // 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+
+        miFuncion14 = (temp, sistema) => {
+            
+            if (temp===undefined || !sistema) return console.warn("Debe ingresar ambos valores");
+            if(isNaN(temp)) return console.warn("El valor de temperatura no es un numero");
+
+            const sistemaNormalizado = sistema.toLowerCase();
+            let conversion;
+
+            switch (sistemaNormalizado) {
+            case "c":
+                conversion = (temp*9/5)+32;d
+                return console.info(`La temperatura en celsius ${temp}, es ${conversion} en farenheit`);
+            case "f":            
+                conversion = (temp - 32)*5/9;
+                return console.info(`La temperatura en farenheit ${temp}, es ${conversion} en celsius`);
+            default:
+                return console.warn("El valor del sistema no es correcto");
+            }
+        }
+
+        miFuncion14(0, "c");
+    </script>
+    
+</body>
+</html>

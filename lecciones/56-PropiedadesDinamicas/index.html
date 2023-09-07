@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propiedades Dinamicas</title>
+</head>
+<body>
+    <h1>Propiedades Dinamicas</h1>
+    <script>
+        const objUsuarios = {
+            [`id_${Math.round(Math.random()*100+5)}`] : "Valor aleatorio"
+        };
+        const usuarios = ["pepe","juan","gabriel","jesus"];
+
+        usuarios.forEach((usuario,index) => {
+            objUsuarios[`id_${index}`] = usuario;
+        })
+
+        console.log(objUsuarios);
+
+    </script>
+    
+</body>
+</html>

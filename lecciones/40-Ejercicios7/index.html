@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios 7</title>
+</head>
+<body>
+    <h1>Ejercicios 7</h1>
+    <script>
+        // 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+        miFuncion21 = (arreglo) => {
+            if(arreglo===undefined) return console.warn("el valor no es una arreglo");
+            if(!(arreglo instanceof Array)) return console.error("el valor no es una arreglo");
+            if(arreglo.length===0) return console.error("El arreglo esta vacio");
+
+            if(!arreglo.every(element => {
+                return typeof(element) == "number";
+            })) return (console.warn("El arreglo no es de solo numeros"));
+
+            const newArr = arreglo.map(element => {
+                return Math.pow(element,2);
+            });
+
+            return console.info(`El arreglo ${arreglo} elevado al cuadrado es ${newArr}`);
+        }
+
+        //miFuncion21([2,"ghola"]);
+
+        // 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+        miFuncion22 = (arreglo) => {
+            if(arreglo===undefined) return console.error("el valor no es una arreglo");
+            if(!(arreglo instanceof Array)) return console.error("el valor no es una arreglo");
+            if(arreglo.length===0) return console.error("El arreglo esta vacio");
+
+            if(!arreglo.every(element => {
+                return typeof(element) == "number";
+            })) return (console.error("El arreglo no es de solo numeros"));      
+
+            const arrOrdenado = arreglo.sort((a,b)=> a-b);
+
+            //changos tambien se puede hacer con Math.max, se le pasa el arreglo como un SPREAD operator: Math.max(...arreglo)
+            //tambien sirve Math.min
+            return console.info(`El numero mayor del arreglo es ${arrOrdenado[arrOrdenado.length-1]} y el numero menor es ${arrOrdenado[0]}`);
+
+        }
+
+        //miFuncion22([1,2,43,7,-1,5,7]);
+
+        // 23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
+        miFuncion23 = (arreglo) => {
+            if(arreglo===undefined) return console.error("el valor no es una arreglo");
+            if(!(arreglo instanceof Array)) return console.error("el valor no es una arreglo");
+            if(arreglo.length===0) return console.error("El arreglo esta vacio");
+
+            if(!arreglo.every(element => {
+                return typeof(element) == "number";
+            })) return (console.warn("El arreglo no es de solo numeros"));
+
+            const pares = arreglo.filter(num => num%2===0);
+            const impares = arreglo.filter(num => num%2 !==0);
+
+            return console.info(`pares : ${pares}, impares : ${impares}`);
+        }
+
+        //miFuncion23(["sdgdsg", 1,2,3,4,5,6,7,8,9,10])    
+        
+    </script>
+
+
+    
+</body>
+</html>

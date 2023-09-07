@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout - setInterval</title>
+</head>
+<body>
+    <h1>setTimeout & setInterval</h1>
+
+    <script>
+        console.log("inicio");
+
+        // //ejecuto la funcion una sola vez, luego de 5000ms (5segundos)
+        // setTimeout(()=> {
+        //     console.log("ejecutando un setTimeout, esto se ejecuta una sola vez");
+        // },5000); 
+
+        //ejecuto la funcion indefinidamente luego de un intervalo de tiempo
+        // setInterval(()=>{
+        //     console.log("Ejecutando un setInterval, esto se ejecuta indefinidamente cada cierto intervalo de tiempo");
+        // }, 2000);
+
+
+        // setInterval(()=>{
+        //     console.log(new Date().toLocaleTimeString());
+        // },1000);
+
+        let temporizador = setTimeout(()=>{
+            console.log(new Date().toLocaleTimeString());
+        })
+
+        //funcion clear timeout. para que funcione hay que guardar el setTimeout en una variable
+        clearTimeout(temporizador);
+
+        //lo mismo es para los setInterval con clearInterval
+    </script>
+    
+</body>
+</html>

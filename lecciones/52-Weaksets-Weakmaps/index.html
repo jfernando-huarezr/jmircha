@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeakSets & WeakMaps</title>
+</head>
+<body>
+    <h1>WeakSets & WeakMaps</h1>
+    <script>
+        //solamente pueden almacenar referencias debiles.
+
+        //esto no funciona
+        //const ws = new WeakSet(1,2,3,4,5,6,7,true,false,[],{});
+
+        const ws = new WeakSet();
+        let valor1 = {"valor1":1};
+        let valor2 = {"valor2":2};
+
+        ws.add(valor1);
+        ws.add(valor2);
+
+        console.log(ws);
+
+        console.log(ws.has(valor1));
+        console.log(ws.has(valor2));
+
+        //el weakset hace que cuando alguna de sus propiedades se vuelve una referencia nula o no definida, en automatico se elimina
+
+        //ejemplo
+
+        // setInterval(() => console.log(ws), 1000);
+
+        // setTimeout(()=>{
+        //     valor1 = null;
+        //     valor2 = null;
+        // }, 1000);
+
+
+        /************WEAK MAPS***************/
+
+        //esto no funciona, similar a weakset
+
+        // const wm = new WeakMap([
+        //     ["nombre", "Sultan"],
+        //     ["edad", 7],
+        //     ["animal", "perro"],
+        //     [null, "nulo"]
+        // ])
+
+        const wm = new WeakMap();
+        let llave1 = {};
+        let llave2 = {};
+        let llave3 = {};
+
+        wm.set(llave1, 1);
+        wm.set(llave2,2);
+        console.log(wm);
+
+        console.log(wm.has(llave1));
+        console.log(wm.has(llave3));
+
+        console.log(wm.get(llave1));
+
+        
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON</title>
+</head>
+<body>
+    <h1>JSON</h1>
+
+    <script>
+
+        const json = { 
+            
+        cadena : "Fernando",
+        numero : 31,
+        booleano: true,
+        arreglo : ["correr", "programar", "cocinar"]
+        ,
+        objeto : {
+            "twitter": "twit twit",
+            "email" : "correo@gmail.com"
+        },
+        nulo: null
+
+        }
+
+      console.log(JSON);
+      console.log(JSON.parse("{}"));
+      console.log(JSON.parse("[]"));
+      console.log(JSON.parse("true"));
+      console.log(JSON.parse("false"));
+      console.log(JSON.parse("19"));
+      console.log(JSON.parse("null"));
+
+
+      //parse agarra un json y lo pasa a una variable de javascript
+
+      //stringyfy hace lo inverso, pasa una variable javascript a formato json
+
+      console.log(JSON.stringify({}));
+      console.log(JSON.stringify(json));
+
+      console.log(JSON.parse(`{
+        "cadena" : "Fernando",
+        "numero" : 31,
+        "booleano": true,
+        "arreglo" : ["correr", "programar", "cocinar"]
+        ,
+        "objeto" : {
+            "twitter": "twit twit",
+            "email" : "correo@gmail.com"
+        },
+        "nulo": null
+        }
+    `))
+    </script>
+    
+</body>
+</html>

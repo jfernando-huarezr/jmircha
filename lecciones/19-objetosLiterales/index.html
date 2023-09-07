@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos Literales</title>
+</head>
+<body>
+    <h1>Objetos Literales</h1>
+    <script>
+        let nombre = "kEnAi",
+        edad = 7;
+
+        const perro = {
+              nombre:nombre,
+              edad:edad,
+              ladrar: function(){
+                console.log("guau guau")
+              }
+        }
+
+        console.log(perro);
+        perro.ladrar();
+
+        //el objeto puede usar literalmente el nombre de la variable como la propiedad si tiene el mismo nombre. acelera el proceso de escritura
+
+        //para los metodos (funciones), 
+
+        const dog = {
+            nombre,
+            edad,
+            raza: "Callejero",
+            ladrar() {
+                console.log("guau guau guau!!!")
+            }
+        }
+
+        console.log(dog);
+        dog.ladrar();
+
+    </script>
+</body>
+</html>

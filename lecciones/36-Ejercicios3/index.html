@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios 3</title>
+</head>
+<body>
+    <h1>Ejercicios 3</h1>
+    <script>
+        // 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
+
+        miFuncion9 = (min="",max="") => {
+            if(!min || !max) return "la cadena no puede estar vacia";       
+            if(isNaN(max) || isNaN(min)) return "Uno de los valores no es un numero";
+
+            const aleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
+            return `El numero aleatorio entre ${min} y ${max} es ${aleatorio}`;
+        }
+
+        //console.log(miFuncion9(65, "hola"));
+
+
+        // 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+
+        miFuncion10 = (numero) => {
+            if(!numero) return "La entrada no puede estar vacia";       
+            if(isNaN(numero)) return "La entrada no es un numero";
+            if(numero%1 != 0) return "El numero no puede ser decimal"
+
+            const numeroAlReves = parseInt((numero.toString()).split("").reverse().join(""))*Math.sign(numero);
+
+            if(numero === numeroAlReves) return `El numero ${numero} es capicua. Numero al reves ${numeroAlReves}`
+            else return `El numero ${numero} NO es capicua. Numero al reves ${numeroAlReves}`
+        }
+
+        //console.log(miFuncion10(1.54));
+
+        // 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+        factorial = (operador) => {
+                if (operador>=1) return operador*factorial(operador-1);              
+                else return 1;
+        }
+
+        miFuncion11 = (num="") => {
+            if (!num) return "Debe ingresar un numero";
+            if(isNaN(num)) return "La entrada no es un numero";
+            if (num<1) return "El numero debe ser mayor o igual a 1";
+            if(num%1 != 0) return "El numero no puede ser decimal";
+
+            return `el factorial del numero ${num} es ${factorial(num)}`;                
+        }
+
+        console.log(miFuncion11(4));
+
+    </script>
+    
+</body>
+</html>

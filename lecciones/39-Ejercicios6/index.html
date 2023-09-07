@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios 6</title>
+</head>
+<body>
+    <h1>Ejercicios 6</h1>
+    <script>
+        // 18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+
+        miFuncion18 = (cadena="") => {
+            if(!cadena)return console.warn("la cadena no puede estar vacia");            
+            if (typeof(cadena)!=='string') return console.warn("el dato ingresado no es una cadena de texto");
+
+            let vocales, consonantes;
+
+            if(cadena.match(/[aeiouAEIOU]/gi) === null) vocales = 0;
+            else vocales = cadena.match(/[aeiou]/gi).length;
+
+            if(cadena.match(/[zxcvbnmsdfghjklqwrtyp]/gi) === null) consonantes = 0;
+            else consonantes = cadena.match(/[zxcvbnmñsdfghjklqwrtyp]/gi).length;
+
+            console.info(`El numero de vocales de la cadena ${cadena} es 
+            vocales: ${vocales}
+            consonantes: ${consonantes}`);
+        }
+
+        //miFuncion18("Uvita")
+
+        // 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+        miFuncion19 = (nombre="") => {
+            if(!nombre)return console.warn("la cadena no puede estar vacia");            
+            if (typeof(nombre)!=='string') return console.warn("el dato ingresado no es una cadena de texto");
+
+            const regex=/^[a-zA-ZÑñáÁéÉíÍóÓúÚ\s]+$/g;
+            return (regex.test(nombre)) 
+            ? console.info(`El nombre ${nombre} es valido`)
+            : console.info(`El nombre ${nombre} es invalido`);
+        }
+
+        //miFuncion19("jose Fernando")
+
+        // 20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+
+        miFuncion20 = (email="") => {
+            if(!email)return console.warn("la cadena no puede estar vacia");            
+            if (typeof(email)!=='string') return console.warn("el dato ingresado no es una cadena de texto");
+
+            const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; 
+
+            // otra expresion regular que utilizo jon : /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i
+
+            return (validRegex.test(email)) 
+            ? console.info(`El dato ingresado ${email} es un email valido`)
+            : console.info(`El dato ingresado ${email} es un email invalido`);
+        }
+
+        //miFuncion20("3453453@xixixi.com");
+    </script>
+    
+</body>
+</html>
