@@ -97,7 +97,7 @@ $linkDOM.removeAttribute("data-id")
 console.log($linkDOM.hasAttribute("data-id"))
 
 
-//leccion 64 Estilos y Variables CSS
+/***** LECCION 64 Estilos y Variables CSS********/
 //style solo sirve para trabajar en propiedades del documento html. Para trabajar en una hoja de estilo aparte, se usa getComputedStyle
 
 console.log($linkDOM.style)
@@ -124,6 +124,7 @@ const $html = document.documentElement,
 
 let varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
 let varYellowColor = getComputedStyle($html).getPropertyValue("--yellow-color");
+let white = getComputedStyle($html).getPropertyValue("--white")
 
 
 console.log(varDarkColor, varYellowColor);
@@ -137,3 +138,155 @@ $html.style.setProperty("--dark-color", "#000")
 
 varDarkColor = getComputedStyle($html).getPropertyValue("--dark-color");
 $body.style.backgroundColor = varDarkColor;
+
+varWhiteColor = getComputedStyle($html).getPropertyValue("--white");
+$body.style.backgroundColor = varWhiteColor;
+$body.style.color = "brown";
+
+
+/*****LECCION 65 DOM CLASES CSS ********/
+const $card = document.querySelector(".card");
+
+console.log($card);
+console.log($card.className);
+console.log($card.classList);
+
+
+console.log($card.classList.contains("rotate-45")) //para saber si contiene la clase
+$card.classList.add("rotate-45");//para añadir una clase
+
+console.log($card.classList.contains("rotate-45")) 
+$card.classList.remove("rotate-45");
+
+console.log($card.classList.contains("rotate-45")) 
+
+$card.classList.toggle("rotate-45") //si no tiene la clase, la agrega
+//$card.classList.toggle("rotate-45") //si la tiene, la quita TOGGLE
+
+$card.classList.replace("rotate-45", "rotate-135")
+
+$card.classList.add("opacity-80", "sepia") //para agarrar varias clases
+$card.classList.remove("opacity-80", "sepia")
+
+/*****LECCION 66 DOM TEXTO Y HTML ********/
+const $whatIsDOM = document.getElementById("que-es");
+
+let text = `
+    <p>
+        El modelo de Objetos del Documento (<b><i>DOM - Document Object Model</i></b>) es un API para documentos HTML y XML</p>
+    <p> 
+        Este provee una representacion estructural del documento, permitiendo modificar su contenido y presentacion visual mediante codigo JS</p>
+    <p>
+        <mark>El DOM no es parte de la especificacion de Javascript, es una API para los navegadores</p>
+    `
+
+    //esta no es parte del estandar
+    $whatIsDOM.innerText = text;
+    //innerText no toma en cuenta las etiquetas
+
+    $whatIsDOM.textContent = text; //tampoco interpreta las etiquetas html, solo texto
+    $whatIsDOM.innerHTML = text; //esta si toma en cuenta las etiquetas html. si lo injecta
+    //innerHTML reemplaza EL CONTENIDO y lo reemplaza por la variable
+
+
+
+    $whatIsDOM.outerHTML = text; //reemplaza el elemento del DOM por lo que diga la variable
+
+/*****************LECCION 64 : DOM Traversing Recorriendo el DOM**************** */
+
+const $cards = document.querySelector(".cards");
+console.log($cards);
+
+//referencia a sus hijos
+console.log($cards.children);
+
+//un hijo en particular
+console.log($cards.children[2]);
+
+//elemento padre 
+console.log($cards.parentElement);
+
+//el nodo padre. este no se usa para los "elemento"
+console.log($cards.parentNode);
+
+//obtener primer y ultimo elemento hijo
+console.log($cards.firstElementChild);
+console.log($cards.lastElementChild);
+
+//tambien funciona para los padres
+console.log($cards.previousElementSibling); //elemento anterior
+console.log($cards.nextElementSibling) //elemento siguiente
+
+console.log($cards.closest("section")); //el elemento que le indico , el ancestro mas cercano, si es que existe
+
+
+/****************LECCION 68 : Creando Elementos y Fragmentos*************************** */
+const $figure = document.createElement("figure"),
+      $img = document.createElement("img"),
+      $figcaption = document.createElement("figcaption"),
+      $figcaptionText = document.createTextNode("Animals"),
+      $cartas = document.querySelector(".cards");
+
+      $figure2 = document.createElement("figure")
+
+
+$img.setAttribute("src","https://picsum.photos/200/200")
+$img.setAttribute("alt","Animals")
+$figure.classList.add("card")
+$figcaption.appendChild($figcaptionText)
+$figure.appendChild($img)
+$figure.appendChild($figcaption)
+
+$cartas.appendChild($figure)
+
+//otra manera con innerHTML
+$figure2.innerHTML= `
+    <img src="https://picsum.photos/200/200" alt="People">
+    <figcaption>People</figcaption>
+`
+
+$figure2.classList.add("card")
+$cartas.appendChild($figure2)
+
+const estaciones = ["Primavera", "Verano", "Otoño", "Invierno"],
+      $ul = document.createElement("ul");
+
+document.write("<h3>Estaciones del Año</h3>")
+document.body.appendChild($ul)
+
+estaciones.forEach( el => {
+    const $li = document.createElement("li");
+    $li.textContent = el;
+    $ul.appendChild($li);
+})
+
+const continentes = ["Africa", "Asia", "Europa", "America", "Oceania", "Antartida"],
+      $ul2 = document.createElement("ul");
+    
+document.write("<h3>Continentes del mundo</h3>")
+
+document.body.appendChild($ul2);
+
+//con inner html
+$ul2.innerHTML = '';
+continentes.forEach(el => {
+    $ul2.innerHTML += `<li>${el}</li>`;
+})
+
+//es mejor usar fragmentos en luga de modificar todo el DOM! como a continuacion. Es una manera mas optima
+
+const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+      $ul3 = document.createElement("ul"),
+      $fragment = document.createDocumentFragment(); //es un metodo
+
+meses.forEach ( el => {
+    const $li = document.createElement("li");
+    $li.textContent = el;
+    $fragment.appendChild($li);
+})
+
+document.write("<h3>Meses del Año</h3>");
+$ul3.appendChild($fragment);
+document.body.appendChild($ul3);
+
+/****************LECCION 69 : Templates*************************** */
