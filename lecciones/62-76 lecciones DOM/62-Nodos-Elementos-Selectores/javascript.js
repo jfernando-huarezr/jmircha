@@ -340,4 +340,30 @@ $cartas.appendChild($fragment2);
 
 /****************LECCION 70 : Modificando Elementos (Metodo Antiguo)*************************** */
 
+//usamos de nuevo $cartas
+const $nuevaTarjeta = document.createElement("figure");
+
+$nuevaTarjeta.innerHTML = `
+    <img src="https://picsum.photos/200" alt="Any">
+    <figcaption>Any</figcaption>
+`;
+
+$nuevaTarjeta.classList.add("card");
+
+//para reemplazar un nodo : nodo nuevo, nodo a reemplazar
+    //$cartas.replaceChild($nuevaTarjeta, $cartas.children[2]);
+
+//añadir antes del primer elemento tarjeta
+    //$cartas.insertBefore($nuevaTarjeta, $cartas.firstElementChild);
+
+//eliminar el ultimo elemento tarjeta
+    //$cartas.removeChild($cartas.lastElementChild);
+
+//para clonar en elementos dinamicos, se usa cloneNode, en lugar de importNode que es para templates.
+
+    const $cloneCards = $cartas.cloneNode(true); //true para clonar TODO el nodo, no solo las etiquetas inicial y final
+
+    document.body.appendChild($cloneCards);
+
+/****************LECCION 71 : Modificando Elementos (Metodo NUEVO)*************************** */
 
