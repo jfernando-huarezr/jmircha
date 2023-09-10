@@ -367,3 +367,35 @@ $nuevaTarjeta.classList.add("card");
 
 /****************LECCION 71 : Modificando Elementos (Metodo NUEVO)*************************** */
 
+/* 
+.insertAdjacent...
+    .insertAdjacentElement(position,el)
+    .insertAdjacentHTML(position,html)
+    .insertAdjacentText(position,text)
+
+posiciones:
+    beforebegin (hermano anterior)
+    afterbegin (primer hijo)
+    beforeend (ultimo hijo)
+    afterend  (hermano siguiente)
+*/
+
+const $nuevaTarjeta2 = document.createElement("figure");
+
+let $contentCard = `
+    <img src="https://picsum.photos/200" alt="Any2">
+    <figcaption></figcaption>
+`;
+
+$nuevaTarjeta2.classList.add("card");
+
+$nuevaTarjeta2.insertAdjacentHTML("beforeend", $contentCard)
+$nuevaTarjeta2.querySelector("figcaption").insertAdjacentText("beforeend", "Any3");
+//$cartas.insertAdjacentElement("afterbegin", $nuevaTarjeta2);
+
+//nuevas funciones :
+
+//$cartas.prepend($nuevaTarjeta2)
+//$cartas.append($nuevaTarjeta2)
+//$cartas.before($nuevaTarjeta2)
+//$cartas.after($nuevaTarjeta2)
