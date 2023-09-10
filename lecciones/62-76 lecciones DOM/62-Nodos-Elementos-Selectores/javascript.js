@@ -290,3 +290,54 @@ $ul3.appendChild($fragment);
 document.body.appendChild($ul3);
 
 /****************LECCION 69 : Templates*************************** */
+//modelo a seguir en el que estructuras el contenido html que quieras mediante javascript se convierta en dinamico. Forma de poder
+//interactuar con el DOM. Se combinan con los fragmentos.
+//es una etiqueta que no se visualiza
+
+//seguimos usando $cartas
+
+const $template = document.getElementById("template-card").content,
+      $fragment2 = document.createDocumentFragment(),
+      cardContent = [
+        {
+          title: "Tecnología",
+          img: "https://picsum.photos/200"
+        },
+        {
+          title: "Animales",
+          img: "https://picsum.photos/200"
+        },
+        {
+          title: "Arquitectura",
+          img: "https://picsum.photos/200"
+        },
+        {
+          title: "Gente",
+          img: "https://picsum.photos/200"
+        },
+        {
+          title: "Naturaleza",
+          img: "https://picsum.photos/200"
+        },
+      ];
+
+cardContent.forEach( el => {
+    $template.querySelector("img").setAttribute("src", el.img);
+    $template.querySelector("img").setAttribute("alt", el.title);
+    $template.querySelector("figcaption").textContent = el.title;
+    
+    //tenemos que clonar el $template porque si no ya no lo podemos volver a usar;
+
+    let $clone = document.importNode($template, true); //si le ponemos false solo clona la etiqueta template de inicio y de fin, no lo que esta dentro
+
+    $fragment2.appendChild($clone);
+})
+
+$cartas.appendChild($fragment2);
+
+//las etiquetas template no se renderizan en el DOM. solo son como un modelo a usar.
+
+
+/****************LECCION 70 : Modificando Elementos (Metodo Antiguo)*************************** */
+
+
